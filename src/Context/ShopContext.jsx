@@ -23,7 +23,7 @@ const ShopContextProvider = (props) => {
 
     const fetchCart = async () => {
       try {
-        const response = await fetch('https://shopbackend-xqa6.onrender.com/getcart', {
+        const response = await fetch('https://shopbackend-xqa6.onrender.com/getcart'), {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -73,7 +73,7 @@ const ShopContextProvider = (props) => {
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch('https://shopbackend-xqa6.onrender.com/addtocart', {
+      fetch('https://shopbackend-xqa6.onrender.com/addtocart'), {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -91,7 +91,7 @@ const ShopContextProvider = (props) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch('https://shopbackend-xqa6.onrender.com/removefromcart', {
+      fetch('https://shopbackend-xqa6.onrender.com/removefromcart'), {
         method: 'POST',
         headers: {
           Accept: 'application/json',
