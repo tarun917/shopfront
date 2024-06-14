@@ -17,13 +17,13 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
 
   useEffect(() => {
-    fetch('http://localhost:4000/allproducts') 
+    fetch('https://shopbackend-xqa6.onrender.com') 
           .then((res) => res.json()) 
           .then((data) => setProducts(data))
 
     if(localStorage.getItem("auth-token"))
     {
-      fetch('http://localhost:4000/getcart', {
+      fetch('https://shopbackend-xqa6.onrender.com', {
       method: 'POST',
       headers: {
         Accept:'application/form-data',
@@ -63,7 +63,7 @@ const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if(localStorage.getItem("auth-token"))
     {
-      fetch('http://localhost:4000/addtocart', {
+      fetch('https://shopbackend-xqa6.onrender.com', {
       method: 'POST',
       headers: {
         Accept:'application/form-data',
@@ -81,7 +81,7 @@ const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if(localStorage.getItem("auth-token"))
     {
-      fetch('http://localhost:4000/removefromcart', {
+      fetch('https://shopbackend-xqa6.onrender.com', {
       method: 'POST',
       headers: {
         Accept:'application/form-data',
