@@ -4,6 +4,9 @@ export const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
 
+
+
+
   const [products,setProducts] = useState([]);
   
   const getDefaultCart = () => {
@@ -17,6 +20,25 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
 
   useEffect(() => {
+
+    const fetchInfo = async () => {
+      try {
+        const response = await fetch('https://shopbackend-xqa6.onrender.com/allproducts');
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Failed to fetch:', error);
+        // Handle error in UI
+      }
+    };
+    
+    // Similar updates for other fetch calls
+    
+
+
     fetch('https://shopbackend-xqa6.onrender.com') 
           .then((res) => res.json()) 
           .then((data) => setProducts(data))
